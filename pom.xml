@@ -33,6 +33,16 @@
             <version>11</version>
             <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>11</version>
+        </dependency>
             <dependency>
                 <groupId>com.merakianalytics.orianna</groupId>
                 <artifactId>orianna</artifactId>

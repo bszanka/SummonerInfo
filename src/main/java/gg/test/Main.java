@@ -29,8 +29,8 @@ public class Main {
 
         // ChampionMasteries cms = ChampionMasteries.forSummoner(summoner).get();
         final ChampionMasteries cms = summoner.getChampionMasteries();
-        System.out.println(cms.get(3).getPoints());
-        System.out.println(cms.find(champion.getName()).getPoints());
+//        System.out.println(cms.get(3).getPoints());
+//        System.out.println(cms.find(champion.getName()).getPoints());
 
         System.out.println(summoner.getName() + " has mastery level 6 or higher on:");
         final SearchableList<ChampionMastery> pro = cms.filter((final ChampionMastery mastery) -> mastery.getLevel() >= 6);
