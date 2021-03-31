@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,7 +22,7 @@
                 <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0" />
                 <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
                     <children>
-                        <Label layoutX="25.0" layoutY="17.0" text="Home Space" textFill="WHITE">
+                        <Label layoutX="25.0" layoutY="17.0" text="Summoner Info" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
@@ -29,11 +32,10 @@
             </children></AnchorPane>
         <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
-                <Pane id="masteryPane" fx:id="masteryPane" layoutX="77.0" layoutY="213.0">
+                <Pane id="masteryPane" fx:id="masteryPane" layoutX="179.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0" visible="false">
                     <children>
-                        <Button id="masteryButton" fx:id="masteryButton" mnemonicParsing="false" onAction="#masteryButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../src/main/css/fullpackstyling.css" />
-                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                        <Button id="masteryButton" fx:id="masteryButton" mnemonicParsing="false" onAction="#masteryButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../main/css/fullpackstyling.css" visible="false" />
+                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" visible="false">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -51,21 +53,21 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" visible="false">
                             <image>
                                 <Image url="@icons8_Block_50px_1.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER" layoutX="-6.0" layoutY="146.0" prefHeight="17.0" prefWidth="174.0" text="Mastery" textFill="WHITE">
+                        <Label alignment="CENTER" layoutX="-6.0" layoutY="146.0" prefHeight="17.0" prefWidth="174.0" text="Mastery with Champion" textFill="WHITE" visible="false">
                             <font>
                                 <Font name="Arial Bold" size="13.0" />
                             </font></Label>
                     </children>
                 </Pane>
-                <Pane id="topChampsPane" fx:id="topChampsPane" layoutX="325.0" layoutY="207.0" prefHeight="202.0" prefWidth="179.0">
+                <Pane id="topChampsPane" fx:id="topChampsPane" layoutX="486.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0" visible="false">
                     <children>
-                        <Button id="topChampsButton" fx:id="topChampsButton" mnemonicParsing="false" onAction="#topChampsButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../src/main/css/fullpackstyling.css" />
-                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                        <Button id="topChampsButton" fx:id="topChampsButton" mnemonicParsing="false" onAction="#topChampsButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../main/css/fullpackstyling.css" visible="false" />
+                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" visible="false">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -83,42 +85,22 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" visible="false">
                             <image>
                                 <Image url="@icons8_Car_52px_2.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Top Champs" textFill="WHITE">
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="My main Champions" textFill="WHITE" visible="false">
                             <font>
                                 <Font name="Arial Bold" size="13.0" />
                             </font></Label>
                     </children>
                 </Pane>
-                <Pane layoutX="549.0" layoutY="213.0" prefHeight="190.0" prefWidth="174.0">
-                    <children>
-                        <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../src/main/css/fullpackstyling.css" />
-                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
-                            <fill>
-                                <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
-                                    <stops>
-                                        <Stop color="#4f79ff" />
-                                        <Stop color="WHITE" offset="0.9961685823754789" />
-                                        <Stop color="#4f79ff" offset="1.0" />
-                                    </stops>
-                                </LinearGradient>
-                            </fill>
-                        </Circle>
-                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@icons8_Play_Button_50px.png" />
-                            </image>
-                        </ImageView>
-                        <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Entertainment" textFill="WHITE">
-                            <font>
-                                <Font name="Arial Bold" size="13.0" />
-                            </font></Label>
-                    </children>
-                </Pane>
+            <TextField id="summonerMWC" fx:id="summonerMWC" layoutX="65.0" layoutY="123.0" prefHeight="25.0" prefWidth="292.0" promptText="Your summoner's name" />
+            <ChoiceBox id="regionSelectMWC" fx:id="regionSelectMWC" layoutX="621.0" layoutY="123.0" prefHeight="25.0" prefWidth="144.0" />
+            <ScrollPane id="scrollPaneMWC" fx:id="scrollPaneMWC" layoutX="65.0" layoutY="172.0" prefHeight="402.0" prefWidth="700.0" />
+            <TextField id="champSelectMWC" fx:id="champSelectMWC" layoutX="372.0" layoutY="123.0" prefHeight="25.0" prefWidth="236.0" promptText="Champion's name" />
+            <Button id="buttonMWC" fx:id="buttonMWC" layoutX="349.0" layoutY="592.0" mnemonicParsing="false" onAction="#startMWC" prefHeight="25.0" prefWidth="132.0" text="Start" />
             </children>
         </Pane>
     </children>
