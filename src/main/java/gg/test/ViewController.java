@@ -1,6 +1,9 @@
 package gg.test;
 
 import com.merakianalytics.orianna.types.common.Region;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -13,7 +16,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static com.merakianalytics.orianna.types.common.Region.*;
+
 public class ViewController extends Main {
+//    final Region[] regions = new Region[]{EUROPE_NORTH_EAST, EUROPE_WEST};
+
     @FXML
     AnchorPane mainAnchorPane = new AnchorPane();
     @FXML
@@ -31,7 +42,7 @@ public class ViewController extends Main {
     @FXML
     TextField champSelectMWC;
     @FXML
-    ChoiceBox regionSelectMWC;
+    ChoiceBox regionSelectMWC = new ChoiceBox();
     @FXML
     ScrollPane scrollPaneMWC;
     @FXML
