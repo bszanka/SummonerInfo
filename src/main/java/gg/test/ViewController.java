@@ -1,10 +1,17 @@
 package gg.test;
 
 import com.merakianalytics.orianna.types.common.Region;
+import com.merakianalytics.orianna.types.core.championmastery.ChampionMastery;
+import com.merakianalytics.orianna.types.core.staticdata.Champion;
+import com.merakianalytics.orianna.types.core.summoner.Summoner;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ArrayChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.*;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -23,7 +30,13 @@ import java.util.List;
 import static com.merakianalytics.orianna.types.common.Region.*;
 
 public class ViewController extends Main {
-//    final Region[] regions = new Region[]{EUROPE_NORTH_EAST, EUROPE_WEST};
+
+    private String name;
+    private Region region;
+    private String champ;
+
+    final Region[] regions = new Region[]{EUNE, EUW, NA, KR};
+    ObservableList<String> regionsString = FXCollections.observableArrayList("EUNE", "EUW", "NA", "KR");
 
     @FXML
     AnchorPane mainAnchorPane = new AnchorPane();
@@ -38,15 +51,17 @@ public class ViewController extends Main {
     @FXML
     Pane  topChampsPane = new Pane();
     @FXML
-    TextField summonerMWC;
+    TextField summonerMWC = new TextField();
     @FXML
-    TextField champSelectMWC;
+    TextField champSelectMWC = new TextField();
     @FXML
     ChoiceBox regionSelectMWC = new ChoiceBox();
     @FXML
-    ScrollPane scrollPaneMWC;
+    ScrollPane scrollPaneMWC = new ScrollPane();
     @FXML
-    Button buttonMWC;
+    Button buttonMWC = new Button();
+    @FXML
+    TextArea textAreaMWC = new TextArea();
 
     @FXML
     private void masteryButtonAction(ActionEvent event) throws Exception {
@@ -56,6 +71,15 @@ public class ViewController extends Main {
         champSelectMWC.setVisible(true);
         regionSelectMWC.setVisible(true);
         scrollPaneMWC.setVisible(true);
+        buttonMWC.setVisible(true);
+
+        regionSelectMWC.setItems(regionsString);
+        regionSelectMWC.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue ov, Number value, Number newValue) {
+                region = regions[newValue.intValue()];
+            }
+        });
     }
 
     @FXML
@@ -66,6 +90,22 @@ public class ViewController extends Main {
         champSelectMWC.setVisible(false);
         regionSelectMWC.setVisible(false);
         scrollPaneMWC.setVisible(false);
+    }
+
+    public void masteryWithChamp(String name, Region region, String champ){
+        final Summoner summoner = Summoner.named(name).withRegion(region).get();
+        final Champion champion = Champion.named(champ).withRegion(region).get();
+        final ChampionMastery cm = summoner.getChampionMastery(champion);
+//        System.out.println("Champion ID: " + cm.getChampion().getId());
+        textAreaMWC.appendText("Mastery points: " + cm.getPoints());
+        textAreaMWC.appendText("Mastery level: " + cm.getLevel());
+        textAreaMWC.appendText("Points until next level: " + cm.getPointsUntilNextLevel());
+
+        // ChampionMasteries cms = ChampionMasteries.forSummoner(summoner).get();
+//        System.out.println(cms.get(3).getPoints());
+//        System.out.println(cms.find(champion.getName()).getPoints());
+
+
     }
 
     @FXML

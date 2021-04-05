@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="mainAnchorPane" fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gg.test.ViewController">
+<AnchorPane id="mainAnchorPane" fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gg.test.ViewController">
     <children>
         <AnchorPane id="mainAnchorPane2" fx:id="mainAnchorPane2" prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -32,10 +33,10 @@
             </children></AnchorPane>
         <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Pane id="masteryPane" fx:id="masteryPane" layoutX="179.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0" visible="false">
+                <Pane id="masteryPane" fx:id="masteryPane" layoutX="179.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0">
                     <children>
-                        <Button id="masteryButton" fx:id="masteryButton" mnemonicParsing="false" onAction="#masteryButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../main/css/fullpackstyling.css" visible="false" />
-                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" visible="false">
+                        <Button id="masteryButton" fx:id="masteryButton" mnemonicParsing="false" onAction="#masteryButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../main/css/fullpackstyling.css" />
+                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -53,21 +54,21 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@icons8_Block_50px_1.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER" layoutX="-6.0" layoutY="146.0" prefHeight="17.0" prefWidth="174.0" text="Mastery with Champion" textFill="WHITE" visible="false">
+                        <Label alignment="CENTER" layoutX="-6.0" layoutY="146.0" prefHeight="17.0" prefWidth="174.0" text="Mastery with Champion" textFill="WHITE">
                             <font>
                                 <Font name="Arial Bold" size="13.0" />
                             </font></Label>
                     </children>
                 </Pane>
-                <Pane id="topChampsPane" fx:id="topChampsPane" layoutX="486.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0" visible="false">
+                <Pane id="topChampsPane" fx:id="topChampsPane" layoutX="486.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0">
                     <children>
-                        <Button id="topChampsButton" fx:id="topChampsButton" mnemonicParsing="false" onAction="#topChampsButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../main/css/fullpackstyling.css" visible="false" />
-                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" visible="false">
+                        <Button id="topChampsButton" fx:id="topChampsButton" mnemonicParsing="false" onAction="#topChampsButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../main/css/fullpackstyling.css" />
+                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -85,22 +86,25 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@icons8_Car_52px_2.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="My main Champions" textFill="WHITE" visible="false">
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="My main Champions" textFill="WHITE">
                             <font>
                                 <Font name="Arial Bold" size="13.0" />
                             </font></Label>
                     </children>
                 </Pane>
-            <TextField id="summonerMWC" fx:id="summonerMWC" layoutX="65.0" layoutY="123.0" prefHeight="25.0" prefWidth="292.0" promptText="Your summoner's name" />
-            <ChoiceBox id="regionSelectMWC" fx:id="regionSelectMWC" layoutX="621.0" layoutY="123.0" prefHeight="25.0" prefWidth="144.0" />
-            <ScrollPane id="scrollPaneMWC" fx:id="scrollPaneMWC" layoutX="65.0" layoutY="172.0" prefHeight="402.0" prefWidth="700.0" />
-            <TextField id="champSelectMWC" fx:id="champSelectMWC" layoutX="372.0" layoutY="123.0" prefHeight="25.0" prefWidth="236.0" promptText="Champion's name" />
-            <Button id="buttonMWC" fx:id="buttonMWC" layoutX="349.0" layoutY="592.0" mnemonicParsing="false" onAction="#startMWC" prefHeight="25.0" prefWidth="132.0" text="Start" />
+            <TextField id="summonerMWC" fx:id="summonerMWC" layoutX="65.0" layoutY="123.0" prefHeight="25.0" prefWidth="292.0" promptText="Your summoner's name" visible="false" />
+            <ChoiceBox id="regionSelectMWC" fx:id="regionSelectMWC" layoutX="621.0" layoutY="123.0" prefHeight="25.0" prefWidth="144.0" visible="false" />
+            <ScrollPane id="scrollPaneMWC" fx:id="scrollPaneMWC" layoutX="65.0" layoutY="172.0" prefHeight="402.0" prefWidth="700.0" visible="false">
+               <content>
+                  <TextArea id="textAreaMWC" fx:id="textAreaMWC" prefHeight="400.0" prefWidth="680.0" />
+               </content></ScrollPane>
+            <TextField id="champSelectMWC" fx:id="champSelectMWC" layoutX="372.0" layoutY="123.0" prefHeight="25.0" prefWidth="236.0" promptText="Champion's name" visible="false" />
+            <Button id="buttonMWC" fx:id="buttonMWC" layoutX="349.0" layoutY="592.0" mnemonicParsing="false" onAction="#startMWC" prefHeight="25.0" prefWidth="132.0" text="Start" visible="false" />
             </children>
         </Pane>
     </children>

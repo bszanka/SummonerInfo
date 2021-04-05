@@ -25,6 +25,13 @@ import java.util.Map.*;
 
 
 public class Main extends Application {
+
+    static final Region
+            EUNE = Region.EUROPE_NORTH_EAST,
+            EUW = Region.EUROPE_WEST,
+            NA = Region.NORTH_AMERICA,
+            KR = Region.KOREA;
+
     @Override
     public void start(Stage stage) throws Exception {
 //        String url = FXMLLoader.load(getClass().getClassLoader().getResource("../../../java/gg.test/View.fxml")).toString();
@@ -50,21 +57,7 @@ public class Main extends Application {
 //        return matchHistory;
 //    }
 
-    public static void masteryWithChamp(String name, Region region, String champ){
-        final Summoner summoner = Summoner.named(name).withRegion(region).get();
-        final Champion champion = Champion.named(champ).withRegion(region).get();
-        final ChampionMastery cm = summoner.getChampionMastery(champion);
-//        System.out.println("Champion ID: " + cm.getChampion().getId());
-        System.out.println("Mastery points: " + cm.getPoints());
-        System.out.println("Mastery level: " + cm.getLevel());
-        System.out.println("Points until next level: " + cm.getPointsUntilNextLevel());
 
-        // ChampionMasteries cms = ChampionMasteries.forSummoner(summoner).get();
-//        System.out.println(cms.get(3).getPoints());
-//        System.out.println(cms.find(champion.getName()).getPoints());
-
-
-    }
 
     public static void mainChamps(String name, Region region){
         final Summoner summoner = Summoner.named(name).withRegion(region).get();
@@ -120,7 +113,7 @@ public class Main extends Application {
         launch(args);
         // Logolás bekapcsolása:
         BasicConfigurator.configure();
-        String key = "RGAPI-760c5258-a109-419d-9a9d-5734e13b3189";
+        String key = "RGAPI-64c419d0-a73c-4973-8001-c3052728d534";
         Orianna.setRiotAPIKey(key);
 //        String name = "balazs337";
 //        String champ = "Varus";
