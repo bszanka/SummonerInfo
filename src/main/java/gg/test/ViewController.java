@@ -1,8 +1,13 @@
 package gg.test;
 
 import com.merakianalytics.orianna.types.common.Region;
+import com.merakianalytics.orianna.types.core.championmastery.ChampionMasteries;
 import com.merakianalytics.orianna.types.core.championmastery.ChampionMastery;
+import com.merakianalytics.orianna.types.core.match.Match;
+import com.merakianalytics.orianna.types.core.match.MatchHistory;
+import com.merakianalytics.orianna.types.core.searchable.SearchableList;
 import com.merakianalytics.orianna.types.core.staticdata.Champion;
+import com.merakianalytics.orianna.types.core.staticdata.Champions;
 import com.merakianalytics.orianna.types.core.summoner.Summoner;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -23,9 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static com.merakianalytics.orianna.types.common.Region.*;
 
@@ -35,7 +38,7 @@ public class ViewController extends Main {
     private Region region;
     private String champ;
 
-    final Region[] regions = new Region[]{EUNE, EUW, NA, KR};
+    final static Region[] regions = new Region[]{EUNE, EUW, NA, KR};
     ObservableList<String> regionsString = FXCollections.observableArrayList("EUNE", "EUW", "NA", "KR");
 
     @FXML
@@ -61,7 +64,7 @@ public class ViewController extends Main {
     @FXML
     Button buttonMWC = new Button();
     @FXML
-    TextArea textAreaMWC = new TextArea();
+    static TextArea textAreaMWC = new TextArea();
 
     @FXML
     private void masteryButtonAction(ActionEvent event) throws Exception {
@@ -92,14 +95,66 @@ public class ViewController extends Main {
         scrollPaneMWC.setVisible(false);
     }
 
-    public void masteryWithChamp(String name, Region region, String champ){
-        final Summoner summoner = Summoner.named(name).withRegion(region).get();
-        final Champion champion = Champion.named(champ).withRegion(region).get();
+
+    public static void mainChamps(String name, int regionIndex){
+        final Region selectedRegion = regions[regionIndex];
+        final Summoner summoner = Summoner.named(name).withRegion(selectedRegion).get();
+        final ChampionMasteries cms = summoner.getChampionMasteries();
+        System.out.println(summoner.getName() + " has mastery level 6 or higher on:");
+        final SearchableList<ChampionMastery> pro = cms.filter((final ChampionMastery mastery) -> mastery.getLevel() >= 6);
+        for(final ChampionMastery mastery : pro) {
+            System.out.println(mastery.getChampion().getName());
+        }
+    }
+
+    public static void mostplayedChamps(String name, int regionIndex) {
+        final Region selectedRegion = regions[regionIndex];
+        final Summoner summoner = Summoner.named(name).withRegion(selectedRegion).get();
+        final MatchHistory matchHistory = MatchHistory.forSummoner(summoner).get();
+        // MatchHistory match_history = MatchHistory.forSummoner(summoner).withQueues([Queue.RANKED_SOLO_5x5]).withSeasons([Season.SEASON_7]).get();
+
+        // Load the entire match history by iterating over all its elements so that we know how long it is.
+        // Unfortunately since we are iterating over the match history and accessing the summoner's champion for each match,
+        // we need to know what version of the static data the champion should have. To avoid pulling many different
+        // static data versions, we will instead create a {champion_id -> champion_name} mapping and just access the champion's
+        // ID from the match data (which it provides directly).
+        final Map<Integer, String> championIdToNameMapping = new HashMap<>();
+        for(final Champion champion : Champions.withRegion(selectedRegion).get()) {
+            championIdToNameMapping.put(champion.getId(), champion.getName());
+        }
+        final Map<String, Integer> playedChampions = new HashMap<>();
+        for(final Match match : matchHistory) {
+            final Integer championId = match.getParticipants().find(summoner).getChampion().getId();
+            final String championName = championIdToNameMapping.get(championId);
+            Integer count = playedChampions.get(championName);
+            if(count == null) {
+                count = 0;
+                playedChampions.put(championName, count);
+            }
+            playedChampions.put(championName, playedChampions.get(championName) + 1);
+        }
+        System.out.println("Length of match history: " + matchHistory.size());
+
+        // Top 10 champ
+        final List<Map.Entry<String, Integer>> entries = new ArrayList<>(playedChampions.entrySet());
+        entries.sort((final Map.Entry<String, Integer> e0, final Map.Entry<String, Integer> e1) -> Integer.compare(e1.getValue(), e0.getValue()));
+
+        for(int i = 0; i < 10 && i < entries.size(); i++) {
+            final String championName = entries.get(i).getKey();
+            final int count = entries.get(i).getValue();
+            System.out.println(championName + " " + count);
+        }
+    }
+
+    public static void masteryWithChamp(String name, int regionIndex, String champ){
+        final Region selectedRegion = regions[regionIndex];
+        final Summoner summoner = Summoner.named(name).withRegion(selectedRegion).get();
+        final Champion champion = Champion.named(champ).withRegion(selectedRegion).get();
         final ChampionMastery cm = summoner.getChampionMastery(champion);
 //        System.out.println("Champion ID: " + cm.getChampion().getId());
         textAreaMWC.appendText("Mastery points: " + cm.getPoints());
-        textAreaMWC.appendText("Mastery level: " + cm.getLevel());
-        textAreaMWC.appendText("Points until next level: " + cm.getPointsUntilNextLevel());
+        textAreaMWC.appendText("\nMastery level: " + cm.getLevel());
+        textAreaMWC.appendText("\nPoints until next level: " + cm.getPointsUntilNextLevel());
 
         // ChampionMasteries cms = ChampionMasteries.forSummoner(summoner).get();
 //        System.out.println(cms.get(3).getPoints());
@@ -110,7 +165,7 @@ public class ViewController extends Main {
 
     @FXML
     private void startMWC(ActionEvent event) throws Exception{
-        masteryWithChamp(summonerMWC.getText(), Region.EUROPE_NORTH_EAST, champSelectMWC.getText());
+        masteryWithChamp(summonerMWC.getText(), regionSelectMWC.getSelectionModel().getSelectedIndex(), champSelectMWC.getText());
     }
 
 }

@@ -59,62 +59,18 @@ public class Main extends Application {
 
 
 
-    public static void mainChamps(String name, Region region){
-        final Summoner summoner = Summoner.named(name).withRegion(region).get();
-        final ChampionMasteries cms = summoner.getChampionMasteries();
-        System.out.println(summoner.getName() + " has mastery level 6 or higher on:");
-        final SearchableList<ChampionMastery> pro = cms.filter((final ChampionMastery mastery) -> mastery.getLevel() >= 6);
-        for(final ChampionMastery mastery : pro) {
-            System.out.println(mastery.getChampion().getName());
-        }
-    }
 
-    public static void mostplayedChamps(String name, Region region) {
-        final Summoner summoner = Summoner.named(name).withRegion(region).get();
-        final MatchHistory matchHistory = MatchHistory.forSummoner(summoner).get();
-        // MatchHistory match_history = MatchHistory.forSummoner(summoner).withQueues([Queue.RANKED_SOLO_5x5]).withSeasons([Season.SEASON_7]).get();
 
-        // Load the entire match history by iterating over all its elements so that we know how long it is.
-        // Unfortunately since we are iterating over the match history and accessing the summoner's champion for each match,
-        // we need to know what version of the static data the champion should have. To avoid pulling many different
-        // static data versions, we will instead create a {champion_id -> champion_name} mapping and just access the champion's
-        // ID from the match data (which it provides directly).
-        final Map<Integer, String> championIdToNameMapping = new HashMap<>();
-        for(final Champion champion : Champions.withRegion(region).get()) {
-            championIdToNameMapping.put(champion.getId(), champion.getName());
-        }
-        final Map<String, Integer> playedChampions = new HashMap<>();
-        for(final Match match : matchHistory) {
-            final Integer championId = match.getParticipants().find(summoner).getChampion().getId();
-            final String championName = championIdToNameMapping.get(championId);
-            Integer count = playedChampions.get(championName);
-            if(count == null) {
-                count = 0;
-                playedChampions.put(championName, count);
-            }
-            playedChampions.put(championName, playedChampions.get(championName) + 1);
-        }
-        System.out.println("Length of match history: " + matchHistory.size());
 
-        // Top 10 champ
-        final List<Entry<String, Integer>> entries = new ArrayList<>(playedChampions.entrySet());
-        entries.sort((final Entry<String, Integer> e0, final Entry<String, Integer> e1) -> Integer.compare(e1.getValue(), e0.getValue()));
-
-        for(int i = 0; i < 10 && i < entries.size(); i++) {
-            final String championName = entries.get(i).getKey();
-            final int count = entries.get(i).getValue();
-            System.out.println(championName + " " + count);
-        }
-    }
 
     public static void main(final String[] args) {
         // Orianna framework git: https://github.com/meraki-analytics/orianna
         // RIOT API kulcs beállítása alternatív módszer: https://orianna.readthedocs.io/en/latest/configuring-orianna.html
-        launch(args);
         // Logolás bekapcsolása:
         BasicConfigurator.configure();
         String key = "RGAPI-64c419d0-a73c-4973-8001-c3052728d534";
         Orianna.setRiotAPIKey(key);
+        launch(args);
 //        String name = "balazs337";
 //        String champ = "Varus";
 //        Region region = Region.EUROPE_NORTH_EAST;
