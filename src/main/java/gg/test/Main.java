@@ -46,7 +46,7 @@ public class Main extends Application {
         stage.setTitle("Summoner Info");
 
         stage.setWidth(993);
-        stage.setHeight(616);
+        stage.setHeight(816);
         stage.setScene(scene);
         stage.show();
     }

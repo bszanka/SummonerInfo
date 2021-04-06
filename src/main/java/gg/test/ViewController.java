@@ -11,26 +11,18 @@ import com.merakianalytics.orianna.types.core.staticdata.Champions;
 import com.merakianalytics.orianna.types.core.summoner.Summoner;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ArrayChangeListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.*;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
-import java.util.*;
-
-import static com.merakianalytics.orianna.types.common.Region.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ViewController extends Main {
 
@@ -64,7 +56,7 @@ public class ViewController extends Main {
     @FXML
     Button buttonMWC = new Button();
     @FXML
-    static TextArea textAreaMWC = new TextArea();
+    TextArea textAreaMWC = new TextArea();
 
     @FXML
     private void masteryButtonAction(ActionEvent event) throws Exception {
@@ -75,6 +67,7 @@ public class ViewController extends Main {
         regionSelectMWC.setVisible(true);
         scrollPaneMWC.setVisible(true);
         buttonMWC.setVisible(true);
+        textAreaMWC.setVisible(true);
 
         regionSelectMWC.setItems(regionsString);
         regionSelectMWC.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
@@ -93,6 +86,7 @@ public class ViewController extends Main {
         champSelectMWC.setVisible(false);
         regionSelectMWC.setVisible(false);
         scrollPaneMWC.setVisible(false);
+        textAreaMWC.setVisible(true);
     }
 
 
@@ -146,26 +140,19 @@ public class ViewController extends Main {
         }
     }
 
-    public static void masteryWithChamp(String name, int regionIndex, String champ){
+    public void masteryWithChamp(String name, int regionIndex, String champ) throws InterruptedException {
         final Region selectedRegion = regions[regionIndex];
         final Summoner summoner = Summoner.named(name).withRegion(selectedRegion).get();
         final Champion champion = Champion.named(champ).withRegion(selectedRegion).get();
         final ChampionMastery cm = summoner.getChampionMastery(champion);
-//        System.out.println("Champion ID: " + cm.getChampion().getId());
         textAreaMWC.appendText("Mastery points: " + cm.getPoints());
         textAreaMWC.appendText("\nMastery level: " + cm.getLevel());
         textAreaMWC.appendText("\nPoints until next level: " + cm.getPointsUntilNextLevel());
-
-        // ChampionMasteries cms = ChampionMasteries.forSummoner(summoner).get();
-//        System.out.println(cms.get(3).getPoints());
-//        System.out.println(cms.find(champion.getName()).getPoints());
-
-
     }
 
     @FXML
     private void startMWC(ActionEvent event) throws Exception{
+        textAreaMWC.clear();
         masteryWithChamp(summonerMWC.getText(), regionSelectMWC.getSelectionModel().getSelectedIndex(), champSelectMWC.getText());
     }
-
 }
