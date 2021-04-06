@@ -5,4 +5,4 @@ JavaFX hobby project to query data from your League of Legends history, using Or
 1. Add your Riot API key
 2. Make queries
 3. ???
-4 Profit
+4. Profit
