@@ -10,8 +10,6 @@ import com.merakianalytics.orianna.types.core.searchable.SearchableList;
 import com.merakianalytics.orianna.types.core.staticdata.Champion;
 import com.merakianalytics.orianna.types.core.staticdata.Champions;
 import com.merakianalytics.orianna.types.core.summoner.Summoner;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,10 +25,7 @@ import java.util.Map;
 
 public class ViewController extends Main {
 
-    private String name;
     private Region region;
-    private String champ;
-
     final static Region[] regions = new Region[]{EUNE, EUW, NA, KR};
     ObservableList<String> regionsString = FXCollections.observableArrayList("EUNE", "EUW", "NA", "KR");
 
@@ -94,12 +89,8 @@ public class ViewController extends Main {
         textAreaTC.setVisible(false);
 
         regionSelectMWC.setItems(regionsString);
-        regionSelectMWC.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue ov, Number value, Number newValue) {
-                region = regions[newValue.intValue()];
-            }
-        });
+        regionSelectMWC.getSelectionModel().selectedIndexProperty().
+                addListener((ov, value, newValue) -> region = regions[newValue.intValue()]);
     }
 
     @FXML
@@ -123,12 +114,8 @@ public class ViewController extends Main {
 
 
         regionSelectTC.setItems(regionsString);
-        regionSelectTC.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue ov, Number value, Number newValue) {
-                region = regions[newValue.intValue()];
-            }
-        });
+        regionSelectTC.getSelectionModel().selectedIndexProperty().
+                addListener((ov, value, newValue) -> region = regions[newValue.intValue()]);
     }
 
 
@@ -171,7 +158,8 @@ public class ViewController extends Main {
 
         // Top 10 champ
         final List<Map.Entry<String, Integer>> entries = new ArrayList<>(playedChampions.entrySet());
-        entries.sort((final Map.Entry<String, Integer> e0, final Map.Entry<String, Integer> e1) -> Integer.compare(e1.getValue(), e0.getValue()));
+        entries.sort((final Map.Entry<String, Integer> e0, final Map.Entry<String, Integer> e1) -> Integer.
+                compare(e1.getValue(), e0.getValue()));
 
         for(int i = 0; i < 10 && i < entries.size(); i++) {
             final String championName = entries.get(i).getKey();
