@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.apache.log4j.BasicConfigurator;
 
@@ -22,7 +23,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("View.fxml"));
         Scene scene = new Scene(root);
-//        stage.getIcons().add(new Image("/pics/nagyito2.png"));
+        stage.getIcons().add(new Image("/logo.png"));
         stage.setTitle("Summoner Info");
 
         stage.setWidth(1200);
