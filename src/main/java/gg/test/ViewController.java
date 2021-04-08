@@ -193,4 +193,28 @@ public class ViewController extends Main {
         mainChamps(summonerTC.getText(), regionSelectTC.getSelectionModel().getSelectedIndex());
         mostplayedChamps(summonerTC.getText(), regionSelectTC.getSelectionModel().getSelectedIndex());
     }
+
+    public void goHome(ActionEvent actionEvent) {
+        masteryPane.setVisible(true);
+        topChampsPane.setVisible(true);
+
+        paneMWC.setVisible(false);
+        summonerMWC.setVisible(false);
+        champSelectMWC.setVisible(false);
+        regionSelectMWC.setVisible(false);
+        scrollPaneMWC.setVisible(false);
+        buttonMWC.setVisible(false);
+        textAreaMWC.setVisible(false);
+
+        paneTC.setVisible(false);
+        summonerTC.setVisible(false);
+        regionSelectTC.setVisible(false);
+        scrollPaneTC.setVisible(false);
+        buttonTC.setVisible(false);
+        textAreaTC.setVisible(false);
+    }
+
+    public void goQuit(ActionEvent actionEvent) {
+        System.exit(0);
+    }
 }

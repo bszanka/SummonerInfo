@@ -20,12 +20,32 @@
     <children>
         <AnchorPane id="mainAnchorPane2" fx:id="mainAnchorPane2" prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0" />
+                <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
+               <children>
+                  <Button id="homeButton" fx:id="homeButton" alignment="CENTER" mnemonicParsing="false" onAction="#goHome" prefHeight="49.0" prefWidth="262.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" textAlignment="CENTER">
+                     <graphic>
+                        <Label alignment="CENTER" prefHeight="28.0" prefWidth="245.0" text="Home" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
+                  <Button id="quitButton" fx:id="quitButton" mnemonicParsing="false" onAction="#goQuit" prefHeight="49.0" prefWidth="262.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css">
+                     <graphic>
+                        <Label text="Quit" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
+               </children></VBox>
                 <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
                     <children>
-                        <Label layoutX="25.0" layoutY="17.0" text="Summoner Info" textFill="WHITE">
+                        <Label alignment="CENTER" layoutX="25.0" layoutY="17.0" prefHeight="27.0" prefWidth="219.0" text="Summoner Info" textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="18.0" />
+                                <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
                     </children>
@@ -36,7 +56,7 @@
                 <Pane id="masteryPane" fx:id="masteryPane" layoutX="179.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0">
                     <children>
                         <Button id="masteryButton" fx:id="masteryButton" mnemonicParsing="false" onAction="#masteryButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../src/main/css/fullpackstyling.css" />
-                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" strokeWidth="0.0">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -68,7 +88,7 @@
                 <Pane id="topChampsPane" fx:id="topChampsPane" layoutX="486.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0">
                     <children>
                         <Button id="topChampsButton" fx:id="topChampsButton" mnemonicParsing="false" onAction="#topChampsButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../src/main/css/fullpackstyling.css" />
-                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" strokeWidth="0.0">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>

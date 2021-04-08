@@ -23,7 +23,8 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("View.fxml"));
         Scene scene = new Scene(root);
-        stage.getIcons().add(new Image("/logo.png"));
+        root.getStylesheets().add("fullpackstyling.css");
+        stage.getIcons().add(new Image("lol_icon.png"));
         stage.setTitle("Summoner Info");
 
         stage.setWidth(1200);
