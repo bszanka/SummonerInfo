@@ -55,7 +55,7 @@
             <children>
                 <Pane id="masteryPane" fx:id="masteryPane" layoutX="179.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0">
                     <children>
-                        <Button id="masteryButton" fx:id="masteryButton" mnemonicParsing="false" onAction="#masteryButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../src/main/css/fullpackstyling.css" />
+                        <Button id="masteryButton" fx:id="masteryButton" mnemonicParsing="false" onAction="#masteryButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
                         <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" strokeWidth="0.0">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
@@ -87,7 +87,7 @@
                 </Pane>
                 <Pane id="topChampsPane" fx:id="topChampsPane" layoutX="486.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0">
                     <children>
-                        <Button id="topChampsButton" fx:id="topChampsButton" mnemonicParsing="false" onAction="#topChampsButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../../src/main/css/fullpackstyling.css" />
+                        <Button id="topChampsButton" fx:id="topChampsButton" mnemonicParsing="false" onAction="#topChampsButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
                         <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" strokeWidth="0.0">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
