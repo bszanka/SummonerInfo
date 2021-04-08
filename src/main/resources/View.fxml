@@ -74,9 +74,9 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0" scaleZ="2.0">
                             <image>
-                                <Image url="@icons8_Block_50px_1.png" />
+                                <Image url="@mastery.png" />
                             </image>
                         </ImageView>
                         <Label alignment="CENTER" layoutX="-6.0" layoutY="146.0" prefHeight="17.0" prefWidth="174.0" text="Mastery with Champion" textFill="WHITE">
@@ -106,9 +106,9 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0" scaleZ="2.0">
                             <image>
-                                <Image url="@icons8_Car_52px_2.png" />
+                                <Image url="@poro.png" />
                             </image>
                         </ImageView>
                         <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="My main Champions" textFill="WHITE">
