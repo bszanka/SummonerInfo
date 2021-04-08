@@ -120,13 +120,13 @@
             <Pane id="paneMWC" fx:id="paneMWC" layoutX="65.0" layoutY="123.0" visible="false">
                <children>
                   <TextField id="summonerMWC" fx:id="summonerMWC" prefHeight="25.0" prefWidth="292.0" promptText="Your summoner's name" visible="false" />
-                  <ChoiceBox id="regionSelectMWC" fx:id="regionSelectMWC" layoutX="556.0" prefHeight="25.0" prefWidth="144.0" visible="false" />
+                   <TextField id="champSelectMWC" fx:id="champSelectMWC" layoutX="307.0" prefHeight="25.0" prefWidth="236.0" promptText="Champion's name" visible="false" />
+                   <ChoiceBox id="regionSelectMWC" fx:id="regionSelectMWC" layoutX="556.0" prefHeight="25.0" prefWidth="144.0" visible="false" />
                   <ScrollPane id="scrollPaneMWC" fx:id="scrollPaneMWC" layoutY="49.0" prefHeight="402.0" prefWidth="700.0" visible="false">
                      <content>
-                        <TextArea id="textAreaMWC" fx:id="textAreaMWC" editable="false" prefHeight="400.0" prefWidth="680.0" wrapText="true" />
+                        <TextArea id="textAreaMWC" fx:id="textAreaMWC" editable="false" prefHeight="400.0" prefWidth="697.0" wrapText="true" />
                      </content>
                   </ScrollPane>
-                  <TextField id="champSelectMWC" fx:id="champSelectMWC" layoutX="307.0" prefHeight="25.0" prefWidth="236.0" promptText="Champion's name" visible="false" />
                   <Button id="buttonMWC" fx:id="buttonMWC" layoutX="284.0" layoutY="469.0" mnemonicParsing="false" onAction="#startMWC" prefHeight="25.0" prefWidth="132.0" text="Start" visible="false" />
                </children>
             </Pane>
@@ -136,7 +136,7 @@
                   <ChoiceBox id="regionSelectTC" fx:id="regionSelectTC" layoutX="556.0" prefHeight="25.0" prefWidth="144.0" visible="false" />
                   <ScrollPane id="scrollPaneTC" fx:id="scrollPaneTC" layoutY="49.0" prefHeight="402.0" prefWidth="700.0" visible="false">
                      <content>
-                        <TextArea id="textAreaTC" fx:id="textAreaTC" editable="false" prefHeight="400.0" prefWidth="680.0" wrapText="true" />
+                        <TextArea id="textAreaTC" fx:id="textAreaTC" editable="false" prefHeight="400.0" prefWidth="697.0" wrapText="true" />
                      </content>
                   </ScrollPane>
                   <Button id="buttonTC" fx:id="buttonTC" layoutX="284.0" layoutY="469.0" mnemonicParsing="false" onAction="#startTC" prefHeight="25.0" prefWidth="132.0" text="Start" visible="false" />

@@ -26,7 +26,7 @@ public class Main extends Application {
         root.getStylesheets().add("fullpackstyling.css");
         stage.getIcons().add(new Image("lol_icon.png"));
         stage.setTitle("Summoner Info");
-
+        stage.setResizable(false);
         stage.setWidth(1200);
         stage.setHeight(800);
         stage.setScene(scene);
