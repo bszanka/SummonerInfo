@@ -214,6 +214,46 @@ public class ViewController extends Main {
             textAreaMWC.appendText("Hozzáférés megtagadva!\n" + f.getMessage());
         }
     }
+    
+    public void showHome(boolean bool){
+        masteryPane.setVisible(bool);
+        topChampsPane.setVisible(bool);
+        circle1.setVisible(bool);
+        circle2.setVisible(bool);
+        img1.setVisible(bool);
+        img2.setVisible(bool);
+        label1.setVisible(bool);
+        label2.setVisible(bool);
+        masteryButton.setVisible(bool);
+        topChampsButton.setVisible(bool);
+    }
+    
+    public void showSettings(boolean bool){
+        settingsPane.setVisible(bool);
+        keyField.setVisible(bool);
+        setKeyButton.setVisible(bool);
+    }
+    
+    public void showMWC(boolean bool){
+        paneMWC.setVisible(bool);
+        summonerMWC.setVisible(bool);
+        champSelectMWC.setVisible(bool);
+        regionSelectMWC.setVisible(bool);
+        scrollPaneMWC.setVisible(bool);
+        buttonMWC.setVisible(bool);
+        textAreaMWC.setVisible(bool);
+    }
+    
+    public void showTC(boolean bool){
+        paneTC.setVisible(bool);
+        summonerTC.setVisible(bool);
+        regionSelectTC.setVisible(bool);
+        scrollPaneTC.setVisible(bool);
+        buttonTC.setVisible(bool);
+        textAreaTC.setVisible(bool);
+    }
+    
+    
 
     @FXML
     public void startMWC(ActionEvent actionEvent) throws Exception{
@@ -236,6 +276,15 @@ public class ViewController extends Main {
 
         keyField.setVisible(false);
         setKeyButton.setVisible(false);
+
+        circle1.setVisible(true);
+        circle2.setVisible(true);
+        img1.setVisible(true);
+        img2.setVisible(true);
+        label1.setVisible(true);
+        label2.setVisible(true);
+        masteryButton.setVisible(true);
+        topChampsButton.setVisible(true);
 
         paneMWC.setVisible(false);
         summonerMWC.setVisible(false);
