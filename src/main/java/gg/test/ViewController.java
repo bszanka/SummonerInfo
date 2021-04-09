@@ -16,8 +16,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,6 +43,18 @@ public class ViewController extends Main {
     Button masteryButton = new Button();
     @FXML
     Pane  masteryPane = new Pane();
+    @FXML
+    Circle circle1 = new Circle();
+    @FXML
+    Circle circle2 = new Circle();
+    @FXML
+    Label label1 = new Label();
+    @FXML
+    Label label2 = new Label();
+    @FXML
+    ImageView img1 = new ImageView();
+    @FXML
+    ImageView img2 = new ImageView();
     @FXML
     Button topChampsButton = new Button();
     @FXML
@@ -220,6 +235,10 @@ public class ViewController extends Main {
     public void goHome(ActionEvent actionEvent) {
         masteryPane.setVisible(true);
         topChampsPane.setVisible(true);
+        settingsPane.setVisible(false);
+
+        keyField.setVisible(false);
+        setKeyButton.setVisible(false);
 
         paneMWC.setVisible(false);
         summonerMWC.setVisible(false);
@@ -244,11 +263,64 @@ public class ViewController extends Main {
 
     @FXML
     public void goSettings(ActionEvent actionEvent) {
+        masteryPane.setVisible(false);
+        topChampsPane.setVisible(false);
+        settingsPane.setVisible(true);
+
+        keyField.setVisible(true);
+        setKeyButton.setVisible(true);
+
+        paneMWC.setVisible(false);
+        summonerMWC.setVisible(false);
+        champSelectMWC.setVisible(false);
+        regionSelectMWC.setVisible(false);
+        scrollPaneMWC.setVisible(false);
+        buttonMWC.setVisible(false);
+        textAreaMWC.setVisible(false);
+
+        paneTC.setVisible(false);
+        summonerTC.setVisible(false);
+        regionSelectTC.setVisible(false);
+        scrollPaneTC.setVisible(false);
+        buttonTC.setVisible(false);
+        textAreaTC.setVisible(false);
     }
 
+    @FXML
     public void setKey(ActionEvent actionEvent) {
         key = keyField.getText();
         Orianna.setRiotAPIKey(key);
         keyField.clear();
+
+        masteryPane.setVisible(true);
+        topChampsPane.setVisible(true);
+        settingsPane.setVisible(false);
+
+        keyField.setVisible(false);
+        setKeyButton.setVisible(false);
+
+        circle1.setVisible(true);
+        circle2.setVisible(true);
+        img1.setVisible(true);
+        img2.setVisible(true);
+        label1.setVisible(true);
+        label2.setVisible(true);
+        masteryButton.setVisible(true);
+        topChampsButton.setVisible(true);
+
+        paneMWC.setVisible(false);
+        summonerMWC.setVisible(false);
+        champSelectMWC.setVisible(false);
+        regionSelectMWC.setVisible(false);
+        scrollPaneMWC.setVisible(false);
+        buttonMWC.setVisible(false);
+        textAreaMWC.setVisible(false);
+
+        paneTC.setVisible(false);
+        summonerTC.setVisible(false);
+        regionSelectTC.setVisible(false);
+        scrollPaneTC.setVisible(false);
+        buttonTC.setVisible(false);
+        textAreaTC.setVisible(false);
     }
 }

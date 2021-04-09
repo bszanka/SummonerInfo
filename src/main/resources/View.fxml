@@ -71,7 +71,7 @@
                 <Pane id="masteryPane" fx:id="masteryPane" layoutX="179.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0" visible="false">
                     <children>
                         <Button id="masteryButton" fx:id="masteryButton" mnemonicParsing="false" onAction="#masteryButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" visible="false" />
-                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" strokeWidth="0.0" visible="false">
+                        <Circle id="circle1" fx:id="circle1" layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" strokeWidth="0.0" visible="false">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -89,12 +89,12 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0" scaleZ="2.0" visible="false">
+                        <ImageView id="img1" fx:id="img1" fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0" scaleZ="2.0" visible="false">
                             <image>
                                 <Image url="@mastery.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER" layoutX="-6.0" layoutY="146.0" prefHeight="17.0" prefWidth="174.0" text="Mastery with Champion" textFill="WHITE" visible="false">
+                        <Label id="label1" fx:id="label1" alignment="CENTER" layoutX="-6.0" layoutY="146.0" prefHeight="17.0" prefWidth="174.0" text="Mastery with Champion" textFill="WHITE" visible="false">
                             <font>
                                 <Font name="Arial Bold" size="13.0" />
                             </font></Label>
@@ -103,7 +103,7 @@
                 <Pane id="topChampsPane" fx:id="topChampsPane" layoutX="486.0" layoutY="213.0" prefHeight="202.0" prefWidth="179.0" visible="false">
                     <children>
                         <Button id="topChampsButton" fx:id="topChampsButton" mnemonicParsing="false" onAction="#topChampsButtonAction" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" visible="false" />
-                        <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" strokeWidth="0.0" visible="false">
+                        <Circle id="circle2" fx:id="circle2" layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE" strokeWidth="0.0" visible="false">
                             <stroke>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -121,12 +121,12 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0" scaleZ="2.0" visible="false">
+                        <ImageView id="img2" fx:id="img2" fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0" scaleZ="2.0" visible="false">
                             <image>
                                 <Image url="@poro.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="My main Champions" textFill="WHITE" visible="false">
+                        <Label id="label2" fx:id="label2" alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="My main Champions" textFill="WHITE" visible="false">
                             <font>
                                 <Font name="Arial Bold" size="13.0" />
                             </font></Label>
