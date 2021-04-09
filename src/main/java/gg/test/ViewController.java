@@ -32,6 +32,7 @@ public class ViewController extends Main {
     final static Region[] regions = new Region[]{EUNE, EUW, NA, KR};
     ObservableList<String> regionsString = FXCollections.observableArrayList("EUNE", "EUW", "NA", "KR");
 
+    //<editor-fold desc="UI elements">
     @FXML
     AnchorPane mainAnchorPane = new AnchorPane();
     @FXML
@@ -90,34 +91,9 @@ public class ViewController extends Main {
     TextField keyField = new TextField();
     @FXML
     Button setKeyButton = new Button();
+    //</editor-fold>
 
-    
-
-    @FXML
-    private void masteryButtonAction(ActionEvent event) throws Exception {
-        showHome(false);
-        showSettings(false);
-        showMWC(true);
-        showTC(false);
-
-        regionSelectMWC.setItems(regionsString);
-        regionSelectMWC.getSelectionModel().selectedIndexProperty().
-                addListener((ov, value, newValue) -> region = regions[newValue.intValue()]);
-    }
-
-    @FXML
-    public void topChampsButtonAction(ActionEvent event) throws Exception {
-        showHome(false);
-        showSettings(false);
-        showMWC(false);
-        showTC(true);
-
-        regionSelectTC.setItems(regionsString);
-        regionSelectTC.getSelectionModel().selectedIndexProperty().
-                addListener((ov, value, newValue) -> region = regions[newValue.intValue()]);
-    }
-
-
+    //<editor-fold desc="Query methods">
     public void mainChamps(String name, int regionIndex) throws ForbiddenException {
         try {
             final Region selectedRegion = regions[regionIndex];
@@ -180,7 +156,9 @@ public class ViewController extends Main {
             textAreaMWC.appendText("Hozzáférés megtagadva!\n" + f.getMessage());
         }
     }
-    
+    //</editor-fold>
+
+    //<editor-fold desc="Show/Hide methods">
     public void showHome(boolean bool){
         masteryPane.setVisible(bool);
         topChampsPane.setVisible(bool);
@@ -217,6 +195,32 @@ public class ViewController extends Main {
         scrollPaneTC.setVisible(bool);
         buttonTC.setVisible(bool);
         textAreaTC.setVisible(bool);
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="Button events">
+    @FXML
+    private void masteryButtonAction(ActionEvent event) throws Exception {
+        showHome(false);
+        showSettings(false);
+        showMWC(true);
+        showTC(false);
+
+        regionSelectMWC.setItems(regionsString);
+        regionSelectMWC.getSelectionModel().selectedIndexProperty().
+                addListener((ov, value, newValue) -> region = regions[newValue.intValue()]);
+    }
+
+    @FXML
+    public void topChampsButtonAction(ActionEvent event) throws Exception {
+        showHome(false);
+        showSettings(false);
+        showMWC(false);
+        showTC(true);
+
+        regionSelectTC.setItems(regionsString);
+        regionSelectTC.getSelectionModel().selectedIndexProperty().
+                addListener((ov, value, newValue) -> region = regions[newValue.intValue()]);
     }
 
     @FXML
@@ -264,4 +268,5 @@ public class ViewController extends Main {
         showMWC(false);
         showTC(false);
     }
+    //</editor-fold>
 }
