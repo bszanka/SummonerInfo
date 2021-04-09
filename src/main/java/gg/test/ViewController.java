@@ -1,5 +1,6 @@
 package gg.test;
 
+import com.merakianalytics.orianna.Orianna;
 import com.merakianalytics.orianna.datapipeline.riotapi.exceptions.ForbiddenException;
 import com.merakianalytics.orianna.types.common.Region;
 import com.merakianalytics.orianna.types.core.championmastery.ChampionMasteries;
@@ -25,6 +26,8 @@ import java.util.Map;
 
 public class ViewController extends Main {
 
+    //RGAPI-51378e00-14e7-4135-ac67-758f90850d12
+    private String key;
     private Region region;
     final static Region[] regions = new Region[]{EUNE, EUW, NA, KR};
     ObservableList<String> regionsString = FXCollections.observableArrayList("EUNE", "EUW", "NA", "KR");
@@ -67,11 +70,25 @@ public class ViewController extends Main {
     Pane paneMWC = new Pane();
     @FXML
     Pane paneTC = new Pane();
+    @FXML
+    Pane settingsPane = new Pane();
+    @FXML
+    Button settingsButton = new Button();
+    @FXML
+    TextField keyField = new TextField();
+    @FXML
+    Button setKeyButton = new Button();
+
+    
 
     @FXML
     private void masteryButtonAction(ActionEvent event) throws Exception {
         masteryPane.setVisible(false);
         topChampsPane.setVisible(false);
+        settingsPane.setVisible(false);
+
+        keyField.setVisible(false);
+        setKeyButton.setVisible(false);
 
         paneMWC.setVisible(true);
         summonerMWC.setVisible(true);
@@ -94,9 +111,13 @@ public class ViewController extends Main {
     }
 
     @FXML
-    private void topChampsButtonAction(ActionEvent event) throws Exception {
+    public void topChampsButtonAction(ActionEvent event) throws Exception {
         masteryPane.setVisible(false);
         topChampsPane.setVisible(false);
+        settingsPane.setVisible(false);
+
+        keyField.setVisible(false);
+        setKeyButton.setVisible(false);
 
         paneMWC.setVisible(false);
         summonerMWC.setVisible(false);
@@ -183,17 +204,19 @@ public class ViewController extends Main {
     }
 
     @FXML
-    private void startMWC(ActionEvent actionEvent) throws Exception{
+    public void startMWC(ActionEvent actionEvent) throws Exception{
         textAreaMWC.clear();
         masteryWithChamp(summonerMWC.getText(), regionSelectMWC.getSelectionModel().getSelectedIndex(), champSelectMWC.getText());
     }
 
+    @FXML
     public void startTC(ActionEvent actionEvent) throws Exception {
         textAreaTC.clear();
         mainChamps(summonerTC.getText(), regionSelectTC.getSelectionModel().getSelectedIndex());
         mostplayedChamps(summonerTC.getText(), regionSelectTC.getSelectionModel().getSelectedIndex());
     }
 
+    @FXML
     public void goHome(ActionEvent actionEvent) {
         masteryPane.setVisible(true);
         topChampsPane.setVisible(true);
@@ -214,7 +237,18 @@ public class ViewController extends Main {
         textAreaTC.setVisible(false);
     }
 
+    @FXML
     public void goQuit(ActionEvent actionEvent) {
         System.exit(0);
+    }
+
+    @FXML
+    public void goSettings(ActionEvent actionEvent) {
+    }
+
+    public void setKey(ActionEvent actionEvent) {
+        key = keyField.getText();
+        Orianna.setRiotAPIKey(key);
+        keyField.clear();
     }
 }

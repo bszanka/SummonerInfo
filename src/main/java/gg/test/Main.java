@@ -1,6 +1,5 @@
 package gg.test;
 
-import com.merakianalytics.orianna.Orianna;
 import com.merakianalytics.orianna.types.common.Region;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -43,8 +42,6 @@ public class Main extends Application {
         // RIOT API kulcs beállítása alternatív módszer: https://orianna.readthedocs.io/en/latest/configuring-orianna.html
         // Logolás bekapcsolása:
         BasicConfigurator.configure();
-        String key = "RGAPI-cb041752-e61f-4ebc-a8ad-9cb98104fdbf";
-        Orianna.setRiotAPIKey(key);
         launch(args);
     }
 }
