@@ -16,7 +16,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -29,8 +28,6 @@ import java.util.Map;
 
 public class ViewController extends Main {
 
-    //RGAPI-51378e00-14e7-4135-ac67-758f90850d12
-    private String key;
     private Region region;
     final static Region[] regions = new Region[]{EUNE, EUW, NA, KR};
     ObservableList<String> regionsString = FXCollections.observableArrayList("EUNE", "EUW", "NA", "KR");
@@ -288,7 +285,8 @@ public class ViewController extends Main {
 
     @FXML
     public void setKey(ActionEvent actionEvent) {
-        key = keyField.getText();
+        //RGAPI-51378e00-14e7-4135-ac67-758f90850d12
+        String key = keyField.getText();
         Orianna.setRiotAPIKey(key);
         keyField.clear();
 
