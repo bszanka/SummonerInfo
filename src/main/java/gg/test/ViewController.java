@@ -259,7 +259,6 @@ public class ViewController extends Main {
 
     @FXML
     public void setKey(ActionEvent actionEvent) {
-        //RGAPI-51378e00-14e7-4135-ac67-758f90850d12
         String key = keyField.getText();
         Orianna.setRiotAPIKey(key);
         keyField.clear();
