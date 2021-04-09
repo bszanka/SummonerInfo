@@ -95,27 +95,10 @@ public class ViewController extends Main {
 
     @FXML
     private void masteryButtonAction(ActionEvent event) throws Exception {
-        masteryPane.setVisible(false);
-        topChampsPane.setVisible(false);
-        settingsPane.setVisible(false);
-
-        keyField.setVisible(false);
-        setKeyButton.setVisible(false);
-
-        paneMWC.setVisible(true);
-        summonerMWC.setVisible(true);
-        champSelectMWC.setVisible(true);
-        regionSelectMWC.setVisible(true);
-        scrollPaneMWC.setVisible(true);
-        buttonMWC.setVisible(true);
-        textAreaMWC.setVisible(true);
-
-        paneTC.setVisible(false);
-        summonerTC.setVisible(false);
-        regionSelectTC.setVisible(false);
-        scrollPaneTC.setVisible(false);
-        buttonTC.setVisible(false);
-        textAreaTC.setVisible(false);
+        showHome(false);
+        showSettings(false);
+        showMWC(true);
+        showTC(false);
 
         regionSelectMWC.setItems(regionsString);
         regionSelectMWC.getSelectionModel().selectedIndexProperty().
@@ -124,27 +107,10 @@ public class ViewController extends Main {
 
     @FXML
     public void topChampsButtonAction(ActionEvent event) throws Exception {
-        masteryPane.setVisible(false);
-        topChampsPane.setVisible(false);
-        settingsPane.setVisible(false);
-
-        keyField.setVisible(false);
-        setKeyButton.setVisible(false);
-
-        paneMWC.setVisible(false);
-        summonerMWC.setVisible(false);
-        champSelectMWC.setVisible(false);
-        regionSelectMWC.setVisible(false);
-        scrollPaneMWC.setVisible(false);
-        textAreaMWC.setVisible(false);
-
-        paneTC.setVisible(true);
-        summonerTC.setVisible(true);
-        regionSelectTC.setVisible(true);
-        scrollPaneTC.setVisible(true);
-        buttonTC.setVisible(true);
-        textAreaTC.setVisible(true);
-
+        showHome(false);
+        showSettings(false);
+        showMWC(false);
+        showTC(true);
 
         regionSelectTC.setItems(regionsString);
         regionSelectTC.getSelectionModel().selectedIndexProperty().
@@ -252,8 +218,6 @@ public class ViewController extends Main {
         buttonTC.setVisible(bool);
         textAreaTC.setVisible(bool);
     }
-    
-    
 
     @FXML
     public void startMWC(ActionEvent actionEvent) throws Exception{
@@ -270,36 +234,10 @@ public class ViewController extends Main {
 
     @FXML
     public void goHome(ActionEvent actionEvent) {
-        masteryPane.setVisible(true);
-        topChampsPane.setVisible(true);
-        settingsPane.setVisible(false);
-
-        keyField.setVisible(false);
-        setKeyButton.setVisible(false);
-
-        circle1.setVisible(true);
-        circle2.setVisible(true);
-        img1.setVisible(true);
-        img2.setVisible(true);
-        label1.setVisible(true);
-        label2.setVisible(true);
-        masteryButton.setVisible(true);
-        topChampsButton.setVisible(true);
-
-        paneMWC.setVisible(false);
-        summonerMWC.setVisible(false);
-        champSelectMWC.setVisible(false);
-        regionSelectMWC.setVisible(false);
-        scrollPaneMWC.setVisible(false);
-        buttonMWC.setVisible(false);
-        textAreaMWC.setVisible(false);
-
-        paneTC.setVisible(false);
-        summonerTC.setVisible(false);
-        regionSelectTC.setVisible(false);
-        scrollPaneTC.setVisible(false);
-        buttonTC.setVisible(false);
-        textAreaTC.setVisible(false);
+        showHome(true);
+        showSettings(false);
+        showMWC(false);
+        showTC(false);
     }
 
     @FXML
@@ -309,27 +247,10 @@ public class ViewController extends Main {
 
     @FXML
     public void goSettings(ActionEvent actionEvent) {
-        masteryPane.setVisible(false);
-        topChampsPane.setVisible(false);
-        settingsPane.setVisible(true);
-
-        keyField.setVisible(true);
-        setKeyButton.setVisible(true);
-
-        paneMWC.setVisible(false);
-        summonerMWC.setVisible(false);
-        champSelectMWC.setVisible(false);
-        regionSelectMWC.setVisible(false);
-        scrollPaneMWC.setVisible(false);
-        buttonMWC.setVisible(false);
-        textAreaMWC.setVisible(false);
-
-        paneTC.setVisible(false);
-        summonerTC.setVisible(false);
-        regionSelectTC.setVisible(false);
-        scrollPaneTC.setVisible(false);
-        buttonTC.setVisible(false);
-        textAreaTC.setVisible(false);
+        showHome(false);
+        showSettings(true);
+        showMWC(false);
+        showTC(false);
     }
 
     @FXML
@@ -338,36 +259,9 @@ public class ViewController extends Main {
         String key = keyField.getText();
         Orianna.setRiotAPIKey(key);
         keyField.clear();
-
-        masteryPane.setVisible(true);
-        topChampsPane.setVisible(true);
-        settingsPane.setVisible(false);
-
-        keyField.setVisible(false);
-        setKeyButton.setVisible(false);
-
-        circle1.setVisible(true);
-        circle2.setVisible(true);
-        img1.setVisible(true);
-        img2.setVisible(true);
-        label1.setVisible(true);
-        label2.setVisible(true);
-        masteryButton.setVisible(true);
-        topChampsButton.setVisible(true);
-
-        paneMWC.setVisible(false);
-        summonerMWC.setVisible(false);
-        champSelectMWC.setVisible(false);
-        regionSelectMWC.setVisible(false);
-        scrollPaneMWC.setVisible(false);
-        buttonMWC.setVisible(false);
-        textAreaMWC.setVisible(false);
-
-        paneTC.setVisible(false);
-        summonerTC.setVisible(false);
-        regionSelectTC.setVisible(false);
-        scrollPaneTC.setVisible(false);
-        buttonTC.setVisible(false);
-        textAreaTC.setVisible(false);
+        showHome(true);
+        showSettings(false);
+        showMWC(false);
+        showTC(false);
     }
 }
