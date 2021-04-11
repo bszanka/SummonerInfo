@@ -91,6 +91,12 @@ public class ViewController extends Main {
     TextField keyField = new TextField();
     @FXML
     Button setKeyButton = new Button();
+    @FXML
+    Pane aboutPane = new Pane();
+    @FXML
+    Button aboutButton = new Button();
+    @FXML
+    TextArea aboutTextArea = new TextArea();
     //</editor-fold>
 
     //<editor-fold desc="Query methods">
@@ -177,6 +183,11 @@ public class ViewController extends Main {
         keyField.setVisible(bool);
         setKeyButton.setVisible(bool);
     }
+
+    public void showAbout(boolean bool){
+        aboutPane.setVisible(bool);
+        aboutTextArea.setVisible(bool);
+    }
     
     public void showMWC(boolean bool){
         paneMWC.setVisible(bool);
@@ -203,6 +214,7 @@ public class ViewController extends Main {
     private void masteryButtonAction(ActionEvent event) throws Exception {
         showHome(false);
         showSettings(false);
+        showAbout(false);
         showMWC(true);
         showTC(false);
 
@@ -215,6 +227,7 @@ public class ViewController extends Main {
     public void topChampsButtonAction(ActionEvent event) throws Exception {
         showHome(false);
         showSettings(false);
+        showAbout(false);
         showMWC(false);
         showTC(true);
 
@@ -240,6 +253,7 @@ public class ViewController extends Main {
     public void goHome(ActionEvent actionEvent) {
         showHome(true);
         showSettings(false);
+        showAbout(false);
         showMWC(false);
         showTC(false);
     }
@@ -253,6 +267,7 @@ public class ViewController extends Main {
     public void goSettings(ActionEvent actionEvent) {
         showHome(false);
         showSettings(true);
+        showAbout(false);
         showMWC(false);
         showTC(false);
     }
@@ -264,6 +279,16 @@ public class ViewController extends Main {
         keyField.clear();
         showHome(true);
         showSettings(false);
+        showAbout(false);
+        showMWC(false);
+        showTC(false);
+    }
+
+    @FXML
+    public void goAbout(ActionEvent actionEvent) {
+        showHome(false);
+        showSettings(false);
+        showAbout(true);
         showMWC(false);
         showTC(false);
     }

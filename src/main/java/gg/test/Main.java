@@ -33,8 +33,6 @@ public class Main extends Application {
     }
 
     public static void main(final String[] args) {
-        // Orianna framework git: https://github.com/meraki-analytics/orianna
-        // RIOT API kulcs beállítása alternatív módszer: https://orianna.readthedocs.io/en/latest/configuring-orianna.html
         // Logolás bekapcsolása:
         BasicConfigurator.configure();
         launch(args);
