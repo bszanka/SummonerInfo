@@ -6,3 +6,7 @@ JavaFX hobby project to query data from your League of Legends history, using Or
 2. Make queries
 3. ???
 4. Profit
+
+# Credits
+Orianna framework: https://github.com/meraki-analytics/oriann
+CSS inspiration: https://github.com/k33ptoo
