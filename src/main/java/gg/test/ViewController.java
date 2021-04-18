@@ -34,69 +34,27 @@ public class ViewController extends Main {
 
     //<editor-fold desc="UI elements">
     @FXML
-    AnchorPane mainAnchorPane = new AnchorPane();
+    private AnchorPane mainAnchorPane, mainAnchorPane2;
     @FXML
-    AnchorPane mainAnchorPane2 = new AnchorPane();
+    private Button masteryButton, topChampsButton, buttonMWC, buttonTC, settingsButton, setKeyButton, aboutButton;
     @FXML
-    Button masteryButton = new Button();
+    private Pane  masteryPane, topChampsPane, paneMWC, paneTC, settingsPane, aboutPane;
     @FXML
-    Pane  masteryPane = new Pane();
+    private Circle circle1, circle2;
     @FXML
-    Circle circle1 = new Circle();
+    private Label label1, label2;
     @FXML
-    Circle circle2 = new Circle();
+    private ImageView img1, img2;
     @FXML
-    Label label1 = new Label();
+    private TextField summonerMWC, champSelectMWC, summonerTC, keyField;
     @FXML
-    Label label2 = new Label();
+    private ChoiceBox regionSelectMWC = new ChoiceBox();
     @FXML
-    ImageView img1 = new ImageView();
+    private ScrollPane scrollPaneMWC, scrollPaneTC;
     @FXML
-    ImageView img2 = new ImageView();
+    private TextArea textAreaMWC, textAreaTC, aboutTextArea;
     @FXML
-    Button topChampsButton = new Button();
-    @FXML
-    Pane  topChampsPane = new Pane();
-    @FXML
-    TextField summonerMWC = new TextField();
-    @FXML
-    TextField champSelectMWC = new TextField();
-    @FXML
-    ChoiceBox regionSelectMWC = new ChoiceBox();
-    @FXML
-    ScrollPane scrollPaneMWC = new ScrollPane();
-    @FXML
-    Button buttonMWC = new Button();
-    @FXML
-    TextArea textAreaMWC = new TextArea();
-    @FXML
-    TextField summonerTC = new TextField();
-    @FXML
-    ChoiceBox regionSelectTC = new ChoiceBox();
-    @FXML
-    ScrollPane scrollPaneTC = new ScrollPane();
-    @FXML
-    Button buttonTC = new Button();
-    @FXML
-    TextArea textAreaTC = new TextArea();
-    @FXML
-    Pane paneMWC = new Pane();
-    @FXML
-    Pane paneTC = new Pane();
-    @FXML
-    Pane settingsPane = new Pane();
-    @FXML
-    Button settingsButton = new Button();
-    @FXML
-    TextField keyField = new TextField();
-    @FXML
-    Button setKeyButton = new Button();
-    @FXML
-    Pane aboutPane = new Pane();
-    @FXML
-    Button aboutButton = new Button();
-    @FXML
-    TextArea aboutTextArea = new TextArea();
+    private ChoiceBox regionSelectTC = new ChoiceBox();
     //</editor-fold>
 
     //<editor-fold desc="Query methods">
