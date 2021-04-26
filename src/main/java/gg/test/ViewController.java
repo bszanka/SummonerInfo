@@ -21,6 +21,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +35,7 @@ public class ViewController extends Main {
     private Region region;
     final static Region[] regions = new Region[]{EUNE, EUW, NA, KR};
     ObservableList<String> regionsString = FXCollections.observableArrayList("EUNE", "EUW", "NA", "KR");
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("mastery-localhost");
 
     //<editor-fold desc="UI elements">
     @FXML
@@ -113,9 +118,18 @@ public class ViewController extends Main {
             final Summoner summoner = Summoner.named(name).withRegion(selectedRegion).get();
             final Champion champion = Champion.named(champ).withRegion(selectedRegion).get();
             final ChampionMastery cm = summoner.getChampionMastery(champion);
+            SummonerEntity se = new SummonerEntity();
             textAreaMWC.appendText("Mastery points: " + cm.getPoints());
             textAreaMWC.appendText("\nMastery level: " + cm.getLevel());
             textAreaMWC.appendText("\nPoints until next level: " + cm.getPointsUntilNextLevel());
+            EntityManager em = emf.createEntityManager();
+            try {
+                em.getTransaction().begin();
+                em.persist(new SummonerEntity(name, champ, (long) cm.getPoints(), cm.getLevel()));
+                em.getTransaction().commit();
+            } finally {
+                em.close();
+            }
         } catch (ForbiddenException f) {
             textAreaMWC.appendText("Hozzáférés megtagadva!\n" + f.getMessage());
         }
