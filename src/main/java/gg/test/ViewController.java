@@ -35,7 +35,7 @@ public class ViewController extends Main {
     private Region region;
     final static Region[] regions = new Region[]{EUNE, EUW, NA, KR};
     ObservableList<String> regionsString = FXCollections.observableArrayList("EUNE", "EUW", "NA", "KR");
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("mastery-localhost");
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("mastery-mysql");
 
     //<editor-fold desc="UI elements">
     @FXML
