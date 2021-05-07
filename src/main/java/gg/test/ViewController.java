@@ -77,7 +77,7 @@ public class ViewController extends Main {
         }
     }
 
-    public void mostplayedChamps(String name, int regionIndex) {
+    public void mostPlayedChamps(String name, int regionIndex) {
         final Region selectedRegion = regions[regionIndex];
         final Summoner summoner = Summoner.named(name).withRegion(selectedRegion).get();
         final MatchHistory matchHistory = MatchHistory.forSummoner(summoner).get();
@@ -217,7 +217,8 @@ public class ViewController extends Main {
     public void startTC(ActionEvent actionEvent) throws Exception {
         textAreaTC.clear();
         mainChamps(summonerTC.getText(), regionSelectTC.getSelectionModel().getSelectedIndex());
-        mostplayedChamps(summonerTC.getText(), regionSelectTC.getSelectionModel().getSelectedIndex());
+        textAreaTC.appendText("\n");
+        mostPlayedChamps(summonerTC.getText(), regionSelectTC.getSelectionModel().getSelectedIndex());
     }
 
     @FXML
