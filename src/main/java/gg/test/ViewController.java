@@ -29,7 +29,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ViewController extends Main {
+public class ViewController {
+
+    static final Region
+            EUNE = Region.EUROPE_NORTH_EAST,
+            EUW = Region.EUROPE_WEST,
+            NA = Region.NORTH_AMERICA,
+            KR = Region.KOREA;
 
     private Region region;
     final static Region[] regions = new Region[]{EUNE, EUW, NA, KR};

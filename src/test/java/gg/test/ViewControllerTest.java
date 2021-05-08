@@ -32,7 +32,7 @@ class ViewControllerTest {
     void setUp() {
         BasicConfigurator.configure();
         // Enter your Riot API key before testing:
-        String key = "";
+        String key = "RGAPI-cf14e834-76ab-45f4-b671-e4c4fca10a52";
         Orianna.setRiotAPIKey(key);
     }
 

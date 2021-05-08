@@ -1,6 +1,5 @@
 package gg.test;
 
-import com.merakianalytics.orianna.types.common.Region;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,12 +10,6 @@ import org.apache.log4j.BasicConfigurator;
 
 
 public class Main extends Application {
-
-    static final Region
-            EUNE = Region.EUROPE_NORTH_EAST,
-            EUW = Region.EUROPE_WEST,
-            NA = Region.NORTH_AMERICA,
-            KR = Region.KOREA;
 
     @Override
     public void start(Stage stage) throws Exception {
