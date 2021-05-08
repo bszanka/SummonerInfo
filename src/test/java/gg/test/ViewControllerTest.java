@@ -24,15 +24,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ViewControllerTest {
 
-    // Enter your Riot API key before testing:
-    private final String key = "";
-    private Region region = Region.EUROPE_NORTH_EAST;
-    private String name = "balazs337";
-    private String champ = "Varus";
+    private final Region region = Region.EUROPE_NORTH_EAST;
+    private final String name = "balazs337";
+    private final String champ = "Varus";
 
     @BeforeEach
     void setUp() {
         BasicConfigurator.configure();
+        // Enter your Riot API key before testing:
+        String key = "";
         Orianna.setRiotAPIKey(key);
     }
 
